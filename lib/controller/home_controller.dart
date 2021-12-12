@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:get/get.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:whatsapp_status_downloader/services/permission_service.dart';
 import 'package:whatsapp_status_downloader/views/dialogs/custom_snackbar.dart';
 import 'package:whatsapp_status_downloader/views/dialogs/loading_dialog.dart';
@@ -36,10 +35,6 @@ class HomeController extends GetxController {
 
     super.onInit();
   }
-
-  
-
-
 
   List<File> images = [];
   List<File> videos = [];

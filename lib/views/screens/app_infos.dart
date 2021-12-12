@@ -47,7 +47,7 @@ class _AppInfosState extends State<AppInfos> {
               ),
             ),
             Text(
-              packageInfo.appName,
+              "Status Saver",
               style: Theme.of(context).primaryTextTheme.bodyText2,
             ),
             Text(
