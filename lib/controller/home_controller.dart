@@ -1,8 +1,6 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:get/get.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
-import 'package:whatsapp_status_downloader/services/permission_service.dart';
 import 'package:whatsapp_status_downloader/views/dialogs/custom_snackbar.dart';
 import 'package:whatsapp_status_downloader/views/dialogs/loading_dialog.dart';
 
@@ -17,15 +15,14 @@ class HomeController extends GetxController {
   bool hasAFAP = false;
 
   void confirmAFAP() async {
-    hasAFAP = await PermissionService.checkAllFilesAccessPermission();
-    if (hasAFAP) {
-      fetchData();
-    }
+    // hasAFAP =
+    // if (hasAFAP) {
+    //   fetchData();
+    // }
     update();
   }
 
   void askPermission() async {
-    await PermissionService.requestAllFilesAccessPermission();
     confirmAFAP();
   }
 
