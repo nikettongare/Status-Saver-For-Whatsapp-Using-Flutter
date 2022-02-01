@@ -8,4 +8,23 @@ class PermissionService {
       await Permission.storage.request();
     }
   }
+
+  static Future<bool> checkAllFilesAccessPermission() async {
+    bool allFilesAccessStatus =
+        await Permission.manageExternalStorage.isGranted;
+
+    if (allFilesAccessStatus) {
+      return true;
+    }
+    return false;
+  }
+
+  static Future<void> requestAllFilesAccessPermission() async {
+    bool allFilesAccessStatus =
+        await Permission.manageExternalStorage.isGranted;
+
+    if (!allFilesAccessStatus) {
+      await [Permission.manageExternalStorage].request();
+    }
+  }
 }

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:whatsapp_status_downloader/views/dialogs/custom_snackbar.dart';
 import 'package:whatsapp_status_downloader/views/dialogs/loading_dialog.dart';
+import '../services/permission_service.dart';
 
 class HomeController extends GetxController {
   String themeIcon = "dark";
@@ -15,21 +16,21 @@ class HomeController extends GetxController {
   bool hasAFAP = false;
 
   void confirmAFAP() async {
-    // hasAFAP =
-    // if (hasAFAP) {
-    //   fetchData();
-    // }
+    hasAFAP = await PermissionService.checkAllFilesAccessPermission();
+    if (hasAFAP) {
+      fetchData();
+    }
     update();
   }
 
   void askPermission() async {
+    await PermissionService.requestAllFilesAccessPermission();
     confirmAFAP();
   }
 
   @override
   void onInit() {
     confirmAFAP();
-
     super.onInit();
   }
 
